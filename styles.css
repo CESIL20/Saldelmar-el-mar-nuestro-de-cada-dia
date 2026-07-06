@@ -1,0 +1,1605 @@
+/* --- VARIABLES DE COLORES - PALETA UNIFICADA --- */
+:root {
+    --bg-light: #F5F7F2;
+    --bg-medium: #E8EDE4;
+    --bg-dark: #D8DDD1;
+
+    --text-primary: #1A2618;
+    --text-secondary: #2C3A28;
+    --text-muted: #4A5E44;
+    --text-light: #6B7B6E;
+
+    --accent: #5A7C5E;
+    --border-color: rgba(44, 58, 40, 0.15);
+    --shadow-color: rgba(44, 58, 40, 0.1);
+
+    --hero-bg: #7A8578;
+    --hero-bg-dark: #5A6B5C;
+
+    --white: #FFFFFF;
+    --plate-bg: #FAFCF9;
+
+    --book-page: #FDFBF5;
+    --book-page-shadow: #F5F2E8;
+    --book-spine: #2C3A28;
+
+    /* Acento premium: bronce/latón, tono clásico de marisquería de autor */
+    --gold: #B08D57;
+    --gold-soft: #D9C29B;
+    --gold-deep: #8C6F40;
+    --gold-glow: rgba(176, 141, 87, 0.35);
+
+    --ease-premium: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html { scroll-behavior: smooth; }
+
+body.menu-open,
+body.modal-open {
+    overflow: hidden;
+}
+
+/* ============================================
+   MODAL DE DETALLE DEL PESCADO
+   ============================================ */
+.fish-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.4s var(--ease-premium), visibility 0.4s var(--ease-premium);
+}
+
+.fish-modal.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.fish-modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(26, 38, 24, 0.78);
+    backdrop-filter: blur(8px);
+}
+
+.fish-modal-content {
+    position: relative;
+    background: var(--bg-light);
+    width: 100%;
+    max-width: 460px;
+    max-height: 86vh;
+    overflow-y: auto;
+    border-radius: 10px;
+    padding: 2.75rem 2.25rem 2.25rem;
+    text-align: center;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.35);
+    transform: translateY(24px) scale(0.96);
+    transition: transform 0.4s var(--ease-premium);
+    border-top: 3px solid var(--gold);
+}
+
+.fish-modal.active .fish-modal-content {
+    transform: translateY(0) scale(1);
+}
+
+.fish-modal-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 1px solid var(--border-color);
+    background: var(--white);
+    font-size: 1.4rem;
+    line-height: 1;
+    color: var(--text-primary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+}
+
+.fish-modal-close:hover {
+    background: var(--gold);
+    color: var(--white);
+    border-color: var(--gold);
+    transform: rotate(90deg);
+}
+
+.fish-modal-image {
+    width: 190px;
+    height: 165px;
+    border-radius: 50%;
+    margin: 0 auto 1.4rem;
+    overflow: hidden;
+    background: var(--plate-bg);
+    border: 3px solid var(--gold-soft);
+    box-shadow: 0 8px 24px var(--shadow-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fish-modal-image img {
+    width: 90%;
+    height: 82%;
+    object-fit: contain;
+}
+
+.fish-modal-content h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 1.9rem;
+    color: var(--text-primary);
+    margin-bottom: 1.1rem;
+}
+
+.fish-modal-desc {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.08rem;
+    line-height: 1.75;
+    color: var(--text-secondary);
+    margin-bottom: 1.6rem;
+}
+
+.fish-modal-origin {
+    border-top: 1px solid var(--gold-soft);
+    padding-top: 1.15rem;
+}
+
+.fish-modal-origin-label {
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--gold-deep);
+    margin-bottom: 0.5rem;
+}
+
+.fish-modal-origin-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--text-muted);
+}
+
+@media (max-width: 480px) {
+    .fish-modal-content {
+        padding: 2.25rem 1.5rem 1.75rem;
+    }
+
+    .fish-modal-image {
+        width: 160px;
+        height: 140px;
+    }
+
+    .fish-modal-content h3 {
+        font-size: 1.6rem;
+    }
+
+    .fish-modal-desc {
+        font-size: 0.98rem;
+    }
+}
+
+@media (max-width: 375px) {
+    .fish-modal {
+        padding: 1.25rem;
+    }
+
+    .fish-modal-content {
+        padding: 2rem 1.25rem 1.5rem;
+    }
+
+    .fish-modal-image {
+        width: 135px;
+        height: 118px;
+        margin-bottom: 1rem;
+    }
+
+    .fish-modal-content h3 {
+        font-size: 1.4rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .fish-modal-desc {
+        font-size: 0.9rem;
+        margin-bottom: 1.2rem;
+    }
+
+    .fish-modal-origin-text {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 250px) {
+    .fish-modal {
+        padding: 0.6rem;
+    }
+
+    .fish-modal-content {
+        padding: 1.75rem 0.9rem 1.25rem;
+        border-radius: 6px;
+    }
+
+    .fish-modal-close {
+        width: 28px;
+        height: 28px;
+        font-size: 1.1rem;
+        top: 8px;
+        right: 8px;
+    }
+
+    .fish-modal-image {
+        width: 105px;
+        height: 92px;
+        margin-bottom: 0.8rem;
+    }
+
+    .fish-modal-content h3 {
+        font-size: 1.15rem;
+        margin-bottom: 0.6rem;
+    }
+
+    .fish-modal-desc {
+        font-size: 0.78rem;
+        line-height: 1.5;
+        margin-bottom: 1rem;
+    }
+
+    .fish-modal-origin-label {
+        font-size: 0.58rem;
+    }
+
+    .fish-modal-origin-text {
+        font-size: 0.78rem;
+    }
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* ============================================
+   NAVBAR CON LOGO CENTRADO
+   ============================================ */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 120px;
+    padding: 0 5%;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    z-index: 1000;
+    background: rgba(245, 247, 242, 0.98);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 2px 12px var(--shadow-color);
+    border-bottom: 1px solid var(--border-color);
+    transition: height 0.45s var(--ease-premium), box-shadow 0.45s ease, background 0.45s ease;
+}
+
+/* Estado contraído al hacer scroll, para una sensación más refinada */
+nav.scrolled {
+    height: 78px;
+    box-shadow: 0 8px 24px var(--shadow-color);
+    background: rgba(245, 247, 242, 0.99);
+}
+
+.nav-left{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.logo-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-column: 2;
+}
+
+.img-logo {
+    height: 120px;
+    width: auto;
+    display: block;
+    transition: height 0.45s var(--ease-premium);
+}
+
+nav.scrolled .img-logo {
+    height: 66px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    justify-content: flex-end;
+    grid-column: 3;
+}
+
+.nav-links li a {
+    font-size: 0.78rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--text-primary);
+    text-decoration: none;
+    padding: 10px 0;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-links li a:hover { color: var(--gold-deep); }
+
+.nav-links li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: var(--gold);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.35s ease-out;
+}
+
+.nav-links li a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.nav-toggle {
+    display: none;
+    width: 30px;
+    height: 24px;
+    position: relative;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    padding: 0;
+    z-index: 1002;
+}
+
+.nav-toggle span {
+    display: block;
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    background: var(--text-primary);
+    border-radius: 2px;
+    left: 0;
+    transition: .25s ease-in-out;
+}
+
+.nav-toggle span:nth-child(1) { top: 0px; }
+.nav-toggle span:nth-child(2) { top: 10px; }
+.nav-toggle span:nth-child(3) { top: 20px; }
+
+.nav-toggle.active span:nth-child(1) { top: 10px; transform: rotate(135deg); }
+.nav-toggle.active span:nth-child(2) { opacity: 0; }
+.nav-toggle.active span:nth-child(3) { top: 10px; transform: rotate(-135deg); }
+
+/* ============================================
+   HERO SECTION
+   ============================================ */
+#inicio {
+    min-height: 100vh;
+    background: linear-gradient(
+        135deg,
+        var(--hero-bg) 0%,
+        var(--hero-bg-dark) 100%
+    );
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding-top: 80px;
+    padding-bottom: 1.75rem;
+    overflow: hidden;
+}
+
+/* Viñeta + textura sutil para dar profundidad al hero */
+#inicio::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse at 50% 30%, rgba(255,255,255,0.06) 0%, transparent 60%),
+        radial-gradient(ellipse at 50% 100%, rgba(0,0,0,0.25) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+#inicio > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* ============================================
+   CARRUSEL DE PLATOS
+   ============================================ */
+.hero-eyebrow {
+    display: block;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--gold-soft);
+    margin-bottom: 1.75rem;
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 1s var(--ease-premium), transform 1s var(--ease-premium);
+}
+
+.hero-eyebrow.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fish-carousel {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 100%;
+    padding: 0 0.5rem;
+    margin-bottom: 2rem;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 1s var(--ease-premium), transform 1s var(--ease-premium);
+}
+
+.fish-carousel.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.carousel-plates {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 340px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.plate-item {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    cursor: pointer;
+    left: 50%;
+    top: 50%;
+}
+
+.plate-oval {
+    width: 240px;
+    height: 200px;
+    border-radius: 50%;
+    background: var(--plate-bg);
+    box-shadow:
+        0 4px 16px rgba(0,0,0,0.12),
+        0 8px 32px rgba(0,0,0,0.15),
+        inset 0 2px 4px rgba(255,255,255,0.9);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid var(--bg-medium);
+    transition: box-shadow 0.5s ease, border-color 0.5s ease;
+}
+
+.plate-item.active .plate-oval {
+    border-color: var(--gold-soft);
+    box-shadow:
+        0 4px 16px rgba(0,0,0,0.12),
+        0 8px 32px rgba(0,0,0,0.18),
+        0 0 0 4px var(--gold-glow),
+        0 0 44px var(--gold-glow),
+        inset 0 2px 4px rgba(255,255,255,0.9);
+}
+
+.plate-oval img {
+    width: 85%;
+    height: 75%;
+    object-fit: contain;
+    transform: rotate(-5deg);
+}
+
+.plate-placeholder {
+    color: var(--text-light);
+}
+
+.plate-placeholder svg {
+    width: 46%;
+    height: 46%;
+    opacity: 0.4;
+}
+
+.plate-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--white);
+    margin-top: 0.6rem;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+    white-space: nowrap;
+    letter-spacing: 0.02em;
+}
+
+.carousel-btn {
+    background: rgba(255, 255, 255, 0.15);
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+    z-index: 10;
+    backdrop-filter: blur(8px);
+}
+
+.carousel-btn:hover {
+    background: rgba(255, 255, 255, 0.25);
+    border-color: var(--gold-soft);
+    color: var(--gold-soft);
+    transform: scale(1.1);
+}
+
+.carousel-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* ============================================
+   TESOROS DEL MAR
+   ============================================ */
+.tesoros-section {
+    background: var(--bg-light);
+    width: 100%;
+    padding: 3.5rem 2rem 4rem;
+    text-align: center;
+}
+
+.tesoros-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.tesoros-line {
+    width: 100px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold-soft));
+    opacity: 0.7;
+}
+
+.tesoros-header .tesoros-line:last-child {
+    background: linear-gradient(to left, transparent, var(--gold-soft));
+}
+
+.tesoros-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    margin: 0;
+}
+
+.tesoros-shell {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+    color: var(--gold);
+    opacity: 0.65;
+}
+
+.tesoros-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 2rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.tesoro-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.4s var(--ease-premium), opacity 0.7s ease;
+}
+
+.tesoro-item:hover {
+    transform: translateY(-6px);
+}
+
+.tesoro-circle {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    background: var(--white);
+    box-shadow: 0 4px 16px var(--shadow-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: 2px solid var(--border-color);
+    transition: border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.tesoro-item:hover .tesoro-circle {
+    border-color: var(--gold-soft);
+    box-shadow: 0 10px 26px var(--gold-glow);
+}
+
+.tesoro-circle img {
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+}
+
+.tesoro-item p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-top: 0.8rem;
+    font-style: italic;
+}
+
+/* ============================================
+   SECCIONES GENERALES
+   ============================================ */
+section { padding: 6rem 10%; }
+
+.section-title {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.section-title .eyebrow {
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold-deep);
+    margin-bottom: 0.9rem;
+}
+
+.section-title h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 3.2rem;
+    color: var(--text-primary);
+    font-weight: 300;
+}
+
+/* ============================================
+   REVEAL AL HACER SCROLL
+   ============================================ */
+.reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.9s var(--ease-premium), transform 0.9s var(--ease-premium);
+}
+
+.reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ============================================
+   DISEÑO TIPO LIBRO
+   ============================================ */
+.book-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 1rem;
+    perspective: 1500px;
+}
+
+.book {
+    display: flex;
+    max-width: 1000px;
+    width: 100%;
+    min-height: 550px;
+    position: relative;
+    box-shadow:
+        0 20px 60px rgba(44, 58, 40, 0.25),
+        0 10px 30px rgba(44, 58, 40, 0.15);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.book-page {
+    flex: 1;
+    padding: 3rem 2.5rem;
+    position: relative;
+    background: linear-gradient(
+        to right,
+        var(--book-page) 0%,
+        var(--book-page-shadow) 50%,
+        var(--book-page) 100%
+    );
+}
+
+.page-left {
+    background: linear-gradient(
+        to right,
+        var(--book-page-shadow) 0%,
+        var(--book-page) 40%,
+        var(--book-page-shadow) 100%
+    );
+    border-right: 1px solid var(--border-color);
+}
+
+.page-right {
+    background: linear-gradient(
+        to left,
+        var(--book-page-shadow) 0%,
+        var(--book-page) 40%,
+        var(--book-page-shadow) 100%
+    );
+    border-left: 1px solid var(--border-color);
+}
+
+.book-spine {
+    width: 40px;
+    background: linear-gradient(
+        to right,
+        var(--book-spine) 0%,
+        #3D4F38 50%,
+        var(--book-spine) 100%
+    );
+    position: relative;
+    box-shadow:
+        inset 0 0 20px rgba(0,0,0,0.3),
+        0 0 10px rgba(0,0,0,0.2);
+}
+
+.book-spine::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(
+        to bottom,
+        transparent 0px,
+        transparent 8px,
+        rgba(255,255,255,0.05) 8px,
+        rgba(255,255,255,0.05) 9px
+    );
+}
+
+/* Filo dorado sutil en el lomo del libro, detalle de encuadernación fina */
+.book-spine::after {
+    content: '';
+    position: absolute;
+    top: 8%;
+    bottom: 8%;
+    left: 50%;
+    width: 1px;
+    transform: translateX(-50%);
+    background: linear-gradient(to bottom, transparent, var(--gold-soft) 15%, var(--gold-soft) 85%, transparent);
+    opacity: 0.55;
+}
+
+.page-content {
+    max-width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.page-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: var(--gold-deep);
+    opacity: 0.35;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+}
+
+.drop-cap::first-letter {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.5rem;
+    font-weight: 600;
+    float: left;
+    line-height: 0.8;
+    margin-right: 0.5rem;
+    margin-top: 0.3rem;
+    color: var(--gold-deep);
+}
+
+.page-content p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem;
+    line-height: 1.9;
+    color: var(--text-secondary);
+    margin-bottom: 1.2rem;
+    text-align: justify;
+    hyphens: auto;
+}
+
+.page-content .frase-destacada {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.3rem !important;
+    color: var(--text-primary) !important;
+    text-align: center !important;
+    margin: 2rem 0 !important;
+    padding: 1.2rem 0;
+    position: relative;
+    border-top: 1px solid var(--gold-soft);
+    border-bottom: 1px solid var(--gold-soft);
+}
+
+.book-page::before {
+    content: '❧';
+    position: absolute;
+    bottom: 1.5rem;
+    font-size: 1.5rem;
+    color: var(--gold-deep);
+    opacity: 0.3;
+}
+
+.page-left::before {
+    right: 2rem;
+}
+
+.page-right::before {
+    left: 2rem;
+}
+
+#nosotros {
+    background-color: var(--bg-light);
+}
+
+.proveedores-columns {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2.5rem;
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.proveedor-col h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.proveedor-col ul {
+    list-style: none;
+    display: inline-block;
+    text-align: left;
+}
+
+.proveedor-col li {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.9;
+    position: relative;
+    padding-left: 18px;
+}
+
+.proveedor-col li::before {
+    content: '•';
+    color: var(--gold);
+    position: absolute;
+    left: 0;
+}
+
+#contacto {
+    text-align: center;
+    border-top: 1px solid var(--border-color);
+    background: var(--bg-medium);
+}
+
+.info-grid {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+}
+
+.info-box {
+    padding: 1.5rem 1.75rem;
+    border-radius: 6px;
+    transition: transform 0.4s var(--ease-premium), box-shadow 0.4s var(--ease-premium);
+}
+
+.info-box:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px var(--shadow-color);
+}
+
+.info-box h4 {
+    color: var(--gold-deep);
+    margin-bottom: 0.6rem;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    font-weight: 600;
+}
+
+.info-box p {
+    color: var(--text-secondary);
+    font-size: 0.92rem;
+}
+
+.telefono,
+.telefono:visited,
+.telefono:hover,
+.telefono:active {
+    color: var(--text-secondary) !important;
+    text-decoration: none !important;
+    transition: color 0.3s;
+}
+
+.telefono:hover {
+    color: var(--gold-deep) !important;
+}
+
+footer {
+    background: var(--bg-dark);
+    padding: 1.2rem;
+    text-align: center;
+    font-size: 0.72rem;
+    color: var(--text-primary);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border-top: 1px solid var(--gold-soft);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 769px) {
+    .nav-toggle { display: block; }
+
+    nav {
+        grid-template-columns: 1fr auto 1fr;
+    }
+
+    .nav-left {
+        justify-content: flex-start;
+    }
+
+    .logo-nav {
+        grid-column: 2;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 96px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: calc(100vh - 96px);
+        padding: 2rem 1.5rem;
+        margin: 0;
+        background: rgba(26, 38, 24, 0.97);
+        backdrop-filter: blur(16px);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        list-style: none;
+        grid-column: 1 / -1;
+
+        /* Modal real: no ocupa espacio ni es interactuable hasta activarse */
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transform: scale(0.97);
+        transition: opacity 0.35s var(--ease-premium),
+                    visibility 0.35s var(--ease-premium),
+                    transform 0.35s var(--ease-premium);
+    }
+
+    .nav-links.active {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: scale(1);
+    }
+
+    .nav-links li {
+        width: 100%;
+        max-width: 280px;
+        text-align: center;
+    }
+
+    .nav-links li a {
+        font-size: 1.05rem;
+        color: var(--bg-light);
+        letter-spacing: 0.22em;
+        padding: 0.9rem 0;
+        display: block;
+    }
+
+    .nav-links li a::after {
+        background-color: var(--gold-soft);
+    }
+
+    .nav-links li:not(:last-child) {
+        border-bottom: 1px solid rgba(245, 247, 242, 0.12);
+    }
+
+    section { padding: 4rem 6%; }
+
+    .carousel-plates {
+        height: 300px;
+    }
+
+    .plate-oval {
+        width: 200px;
+        height: 165px;
+    }
+
+    .plate-label {
+        font-size: 1rem;
+    }
+
+    .carousel-btn {
+        width: 42px;
+        height: 42px;
+    }
+
+    .tesoros-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.8rem;
+    }
+
+    .tesoro-circle {
+        width: 100px;
+        height: 100px;
+    }
+
+    .tesoro-item p {
+        font-size: 0.85rem;
+    }
+
+    .tesoros-line {
+        width: 70px;
+    }
+
+    .tesoros-title {
+        font-size: 0.9rem;
+        letter-spacing: 0.25em;
+    }
+
+    .book {
+        flex-direction: column;
+        min-height: auto;
+    }
+
+    .book-spine {
+        width: 100%;
+        height: 20px;
+        background: linear-gradient(
+            to bottom,
+            var(--book-spine) 0%,
+            #3D4F38 50%,
+            var(--book-spine) 100%
+        );
+    }
+
+    .book-spine::before {
+        background: repeating-linear-gradient(
+            to right,
+            transparent 0px,
+            transparent 8px,
+            rgba(255,255,255,0.05) 8px,
+            rgba(255,255,255,0.05) 9px
+        );
+    }
+
+    .book-spine::after {
+        top: 50%;
+        left: 8%;
+        right: 8%;
+        bottom: auto;
+        width: auto;
+        height: 1px;
+        transform: translateY(-50%);
+        background: linear-gradient(to right, transparent, var(--gold-soft) 15%, var(--gold-soft) 85%, transparent);
+    }
+
+    .book-page {
+        padding: 2rem 1.5rem;
+    }
+
+    .page-left {
+        background: linear-gradient(
+            to bottom,
+            var(--book-page-shadow) 0%,
+            var(--book-page) 60%,
+            var(--book-page-shadow) 100%
+        );
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .page-right {
+        background: linear-gradient(
+            to top,
+            var(--book-page-shadow) 0%,
+            var(--book-page) 60%,
+            var(--book-page-shadow) 100%
+        );
+        border-left: none;
+        border-top: 1px solid var(--border-color);
+    }
+
+    .drop-cap::first-letter {
+        font-size: 3rem;
+    }
+
+    .page-content p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    section { padding: 3.5rem 5%; }
+
+    .nav-links {
+        top: 84px;
+        height: calc(100vh - 84px);
+        padding: 1.5rem 1rem;
+        gap: 0.25rem;
+    }
+
+    .nav-links li a {
+        font-size: 0.95rem;
+        padding: 0.75rem 0;
+        letter-spacing: 0.18em;
+    }
+
+    .section-title h2 {
+        font-size: 2.4rem;
+    }
+
+    .carousel-plates {
+        height: 260px;
+    }
+
+    .plate-oval {
+        width: 160px;
+        height: 135px;
+        border: 3px solid var(--bg-medium);
+    }
+
+    .plate-label {
+        font-size: 0.9rem;
+        margin-top: 0.5rem;
+    }
+
+    .carousel-btn {
+        width: 38px;
+        height: 38px;
+    }
+
+    .carousel-btn svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    .hero-eyebrow {
+        font-size: 0.7rem;
+        letter-spacing: 0.28em;
+        margin-bottom: 1.25rem;
+    }
+
+    .tesoros-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem 1rem;
+    }
+
+    .tesoro-circle {
+        width: 85px;
+        height: 85px;
+    }
+
+    .tesoro-item p {
+        font-size: 0.8rem;
+    }
+
+    .tesoros-line {
+        width: 50px;
+    }
+
+    .tesoros-title {
+        font-size: 0.8rem;
+        letter-spacing: 0.2em;
+    }
+
+    .proveedores-columns {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .info-grid {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .book-container {
+        padding: 1rem 0.5rem;
+    }
+
+    .book-page {
+        padding: 1.5rem 1.2rem;
+    }
+
+    .page-number {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    .drop-cap::first-letter {
+        font-size: 2.5rem;
+    }
+
+    .page-content p {
+        font-size: 0.95rem;
+        line-height: 1.7;
+    }
+
+    .page-content .frase-destacada {
+        font-size: 1.1rem !important;
+        margin: 1.5rem 0 !important;
+    }
+
+    .book-spine {
+        height: 15px;
+    }
+}
+
+@media (max-width: 375px) {
+    .img-logo {
+        height: 45px !important;
+    }
+
+    nav.scrolled .img-logo {
+        height: 40px !important;
+    }
+
+    .nav-links {
+        top: 72px;
+        height: calc(100vh - 72px);
+        padding: 1.2rem 0.8rem;
+        gap: 0.15rem;
+    }
+
+    .nav-links li a {
+        font-size: 0.85rem;
+        padding: 0.65rem 0;
+        letter-spacing: 0.14em;
+    }
+
+    section { padding: 3rem 4%; }
+
+    .hero-eyebrow {
+        font-size: 0.62rem;
+        letter-spacing: 0.2em;
+        margin-bottom: 1rem;
+    }
+
+    .section-title h2 {
+        font-size: 2rem;
+    }
+
+    .carousel-plates {
+        height: 230px;
+    }
+
+    .plate-oval {
+        width: 140px;
+        height: 115px;
+        border: 3px solid var(--bg-medium);
+    }
+
+    .plate-oval img {
+        width: 80%;
+        height: 70%;
+    }
+
+    .plate-label {
+        font-size: 0.8rem;
+        margin-top: 0.4rem;
+    }
+
+    .carousel-btn {
+        width: 34px;
+        height: 34px;
+    }
+
+    .carousel-btn svg {
+        width: 14px;
+        height: 14px;
+    }
+
+    .tesoros-section {
+        padding: 2.5rem 1rem 3rem;
+    }
+
+    .tesoros-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem 1rem;
+    }
+
+    .tesoro-circle {
+        width: 80px;
+        height: 80px;
+    }
+
+    .tesoro-item p {
+        font-size: 0.75rem;
+        margin-top: 0.6rem;
+    }
+
+    .tesoros-line {
+        width: 40px;
+    }
+
+    .tesoros-title {
+        font-size: 0.75rem;
+        letter-spacing: 0.2em;
+    }
+
+    .tesoros-shell svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .proveedores-columns {
+        gap: 1.5rem;
+    }
+
+    .proveedor-col h4 {
+        font-size: 1.2rem;
+    }
+
+    .proveedor-col li {
+        font-size: 0.85rem;
+    }
+
+    .page-content .frase-destacada {
+        font-size: 1.1rem !important;
+    }
+
+    .page-content p {
+        font-size: 0.85rem;
+    }
+
+    .book-page {
+        padding: 1.2rem 1rem;
+    }
+
+    .page-number {
+        font-size: 1.8rem;
+    }
+
+    .drop-cap::first-letter {
+        font-size: 2.2rem;
+    }
+
+    .page-content p {
+        font-size: 0.9rem;
+        line-height: 1.6;
+    }
+}
+
+@media (max-width: 250px) {
+    .img-logo {
+        height: 35px !important;
+    }
+
+    .nav-links {
+        top: 60px;
+        height: calc(100vh - 60px);
+        padding: 1rem 0.5rem;
+        gap: 0.1rem;
+    }
+
+    .nav-links li a {
+        font-size: 0.75rem;
+        padding: 0.55rem 0;
+        letter-spacing: 0.1em;
+    }
+
+    section { padding: 2.5rem 3%; }
+
+    .hero-eyebrow {
+        font-size: 0.55rem;
+        letter-spacing: 0.14em;
+        margin-bottom: 0.8rem;
+    }
+
+    .section-title h2 {
+        font-size: 1.6rem;
+    }
+
+    .carousel-plates {
+        height: 190px;
+    }
+
+    .plate-oval {
+        width: 110px;
+        height: 90px;
+        border: 2px solid var(--bg-medium);
+    }
+
+    .plate-oval img {
+        width: 75%;
+        height: 65%;
+    }
+
+    .plate-label {
+        font-size: 0.7rem;
+        margin-top: 0.3rem;
+    }
+
+    .carousel-btn {
+        width: 28px;
+        height: 28px;
+    }
+
+    .carousel-btn svg {
+        width: 12px;
+        height: 12px;
+    }
+
+    .tesoros-section {
+        padding: 2rem 0.5rem 2.5rem;
+    }
+
+    .tesoros-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.2rem 0.8rem;
+    }
+
+    .tesoro-circle {
+        width: 65px;
+        height: 65px;
+    }
+
+    .tesoro-item p {
+        font-size: 0.65rem;
+        margin-top: 0.5rem;
+    }
+
+    .tesoros-line {
+        width: 30px;
+    }
+
+    .tesoros-title {
+        font-size: 0.65rem;
+        letter-spacing: 0.15em;
+    }
+
+    .tesoros-shell svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    .proveedor-col h4 {
+        font-size: 1rem;
+    }
+
+    .proveedor-col li {
+        font-size: 0.75rem;
+        line-height: 1.7;
+    }
+
+    .page-content .frase-destacada {
+        font-size: 0.95rem !important;
+    }
+
+    .page-content p {
+        font-size: 0.75rem;
+        line-height: 1.6;
+    }
+
+    .info-box h4 {
+        font-size: 0.65rem;
+    }
+
+    .info-box p {
+        font-size: 0.8rem;
+    }
+
+    footer {
+        font-size: 0.6rem;
+        padding: 1rem;
+    }
+
+    .book-page {
+        padding: 1rem 0.8rem;
+    }
+
+    .page-number {
+        font-size: 1.5rem;
+    }
+
+    .drop-cap::first-letter {
+        font-size: 1.8rem;
+    }
+
+    .page-content p {
+        font-size: 0.7rem;
+        line-height: 1.5;
+    }
+}
+
+body, #inicio, .fish-carousel, .tesoros-section {
+    max-width: 100vw;
+    overflow-x: hidden;
+}
