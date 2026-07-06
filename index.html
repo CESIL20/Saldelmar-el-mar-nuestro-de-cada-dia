@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saldelmar | Restaurante de Mariscos y Cocina de Autor en Lima</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- NAVBAR CON LOGO CENTRADO -->
+    <nav>
+        <div class="nav-left">
+            <button class="nav-toggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+
+        <div class="logo-nav">
+            <img src="logo.png" alt="Saldelmar Logo" class="img-logo">
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#nosotros">Nosotros</a></li>
+            <li><a href="CARTA_SALDELMAR.pdf">Carta</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="inicio">
+        <span class="hero-eyebrow">Del Mar a la Mesa</span>
+
+        <!-- CARRUSEL DE PLATOS -->
+        <div class="fish-carousel">
+            <button class="carousel-btn prev" aria-label="Anterior">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+            </button>
+
+            <div class="carousel-plates">
+                <div class="plate-item" data-index="0" data-desc="Carne blanca, suave y jugosa, reconocida por su frescura y delicado sabor marino." data-origin="Costas arenosas y estuarios de todo el litoral peruano.">
+                    <div class="plate-oval">
+                        <img src="https://mardelperu.pe/wp-content/uploads/2025/03/DSC2352-CORVINA-768x267.jpg" alt="Corvina">
+                    </div>
+                    <p class="plate-label">Corvina</p>
+                </div>
+                <div class="plate-item" data-index="1" data-desc="Carne blanca, firme y consistente, con sabor intenso y excelente textura para parrillas y guisos." data-origin="Aguas cálidas y fondos rocosos del norte peruano.">
+                    <div class="plate-oval">
+                        <img src="https://mardelperu.pe/wp-content/uploads/2025/03/DSC2341-MERO-MURIQUE-768x287.jpg" alt="Mero Murique">
+                    </div>
+                    <p class="plate-label">Mero Murique</p>
+                </div>
+                <div class="plate-item" data-index="2" data-desc="Carne blanca de textura compacta y sabor profundo. Muy valorado por su calidad gastronómica." data-origin="Arrecifes y zonas rocosas del norte del Perú.">
+                    <div class="plate-oval">
+                        <img src="https://mardelperu.pe/wp-content/uploads/2025/03/DSC2348-MERO-ROJO-768x325.jpg" alt="Mero Rojo">
+                    </div>
+                    <p class="plate-label">Mero Rojo</p>
+                </div>
+                <div class="plate-item" data-index="3" data-desc="Carne blanca, firme y suave, ideal para diversas preparaciones marinas." data-origin="Aguas costeras del Pacífico peruano, asociadas a fondos arenosos y rocosos.">
+                    <div class="plate-oval">
+                        <img src="https://mardelperu.pe/wp-content/uploads/2025/03/DSC2343-FORTUNO-768x305.jpg" alt="Fortuno">
+                    </div>
+                    <p class="plate-label">Fortuno</p>
+                </div>
+                <div class="plate-item active" data-index="4" data-desc="Carne blanca, firme y sabrosa, con un sabor intenso característico del mar." data-origin="Fondos rocosos profundos de la costa central y sur del Perú.">
+                    <div class="plate-oval">
+                        <img src="https://mardelperu.pe/wp-content/uploads/2025/03/DSC_5915-CONGRIO-768x240.png" alt="Congrio">
+                    </div>
+                    <p class="plate-label">Congrio</p>
+                </div>
+                <div class="plate-item" data-index="5" data-desc="Carne blanca, magra y jugosa, de textura suave y sabor fino. Muy apreciado en la gastronomía de autor." data-origin="Manglares, estuarios y aguas costeras del norte del Perú, especialmente Tumbes y Piura.">
+                    <div class="plate-oval">
+                        <img src="https://mardelperu.pe/wp-content/uploads/2025/03/DSC2547-ROVALO-768x275.png" alt="Robalo">
+                    </div>
+                    <p class="plate-label">Robalo</p>
+                </div>
+                <div class="plate-item" data-index="6" data-desc="Carne blanca, firme y delicada, con un sabor suave y elegante. Ideal para preparaciones a la parrilla, al horno o frita." data-origin="Fondos rocosos de la costa peruana, principalmente del centro y sur del país.">
+                    <div class="plate-oval">
+                        <img src="https://mardelperu.pe/wp-content/uploads/2025/03/DSC2379-chita-768x390.jpg" alt="Chita">
+                    </div>
+                    <p class="plate-label">Chita</p>
+                </div>
+                <div class="plate-item" data-index="7" data-desc="Carne firme y de sabor pronunciado, apreciada por su textura consistente y carácter marino." data-origin="Cuevas y arrecifes rocosos del litoral peruano, principalmente en el norte y centro.">
+                    <div class="plate-oval">
+                        <img src="morena.png" alt="Pez Morena">
+                    </div>
+                    <p class="plate-label">Pez Morena</p>
+                </div>
+                <div class="plate-item" data-index="8" data-desc="Carne blanca, tierna y delicada, con pocas espinas y un sabor refinado. Considerado uno de los pescados más finos del mar." data-origin="Fondos arenosos de todo el litoral peruano.">
+                    <div class="plate-oval plate-placeholder">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3">
+                            <path d="M2 12c3-4 7-6 11-6 4 0 7 2.5 9 6-2 3.5-5 6-9 6-4 0-8-2-11-6z"/>
+                            <circle cx="16" cy="10.5" r="0.6" fill="currentColor" stroke="none"/>
+                            <path d="M2 12l-1.5-3M2 12l-1.5 3"/>
+                        </svg>
+                    </div>
+                    <p class="plate-label">Lenguado</p>
+                </div>
+                <div class="plate-item" data-index="9" data-desc="Carne blanca y firme, de sabor agradable y textura consistente. Excelente para frituras y sudados." data-origin="Aguas costeras del Pacífico peruano, especialmente en la zona central.">
+                    <div class="plate-oval plate-placeholder">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3">
+                            <path d="M2 12c3-4 7-6 11-6 4 0 7 2.5 9 6-2 3.5-5 6-9 6-4 0-8-2-11-6z"/>
+                            <circle cx="16" cy="10.5" r="0.6" fill="currentColor" stroke="none"/>
+                            <path d="M2 12l-1.5-3M2 12l-1.5 3"/>
+                        </svg>
+                    </div>
+                    <p class="plate-label">Rinchin</p>
+                </div>
+                <div class="plate-item" data-index="10" data-desc="Carne blanca, compacta y de sabor intenso. Muy apreciado en caldos y preparaciones tradicionales." data-origin="Fondos arenosos y fangosos de la costa peruana.">
+                    <div class="plate-oval plate-placeholder">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3">
+                            <path d="M2 12c3-4 7-6 11-6 4 0 7 2.5 9 6-2 3.5-5 6-9 6-4 0-8-2-11-6z"/>
+                            <circle cx="16" cy="10.5" r="0.6" fill="currentColor" stroke="none"/>
+                            <path d="M2 12l-1.5-3M2 12l-1.5 3"/>
+                        </svg>
+                    </div>
+                    <p class="plate-label">Pejesapo</p>
+                </div>
+                <div class="plate-item" data-index="11" data-desc="Carne blanca, delicada y de sabor suave, con una textura agradable y versátil." data-origin="Aguas poco profundas del norte y centro del Perú.">
+                    <div class="plate-oval plate-placeholder">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3">
+                            <path d="M2 12c3-4 7-6 11-6 4 0 7 2.5 9 6-2 3.5-5 6-9 6-4 0-8-2-11-6z"/>
+                            <circle cx="16" cy="10.5" r="0.6" fill="currentColor" stroke="none"/>
+                            <path d="M2 12l-1.5-3M2 12l-1.5 3"/>
+                        </svg>
+                    </div>
+                    <p class="plate-label">Pluma</p>
+                </div>
+                <div class="plate-item" data-index="12" data-desc="Carne rosada, firme y jugosa, de sabor delicado y textura excepcional. Muy valorada en ceviches y preparaciones gourmet." data-origin="Fondos rocosos y arrecifes de toda la costa peruana, especialmente del norte.">
+                    <div class="plate-oval plate-placeholder">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3">
+                            <path d="M2 12c3-4 7-6 11-6 4 0 7 2.5 9 6-2 3.5-5 6-9 6-4 0-8-2-11-6z"/>
+                            <circle cx="16" cy="10.5" r="0.6" fill="currentColor" stroke="none"/>
+                            <path d="M2 12l-1.5-3M2 12l-1.5 3"/>
+                        </svg>
+                    </div>
+                    <p class="plate-label">Cabrilla</p>
+                </div>
+                <div class="plate-item" data-index="13" data-desc="Carne rosada, firme y jugosa, rica en sabor y alto valor nutricional. Ideal para sellados, sashimi y parrillas." data-origin="Océano Pacífico oriental, capturado mar adentro frente a las costas peruanas.">
+                    <div class="plate-oval plate-placeholder">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3">
+                            <path d="M2 12c3-4 7-6 11-6 4 0 7 2.5 9 6-2 3.5-5 6-9 6-4 0-8-2-11-6z"/>
+                            <circle cx="16" cy="10.5" r="0.6" fill="currentColor" stroke="none"/>
+                            <path d="M2 12l-1.5-3M2 12l-1.5 3"/>
+                        </svg>
+                    </div>
+                    <p class="plate-label">Atún Rosa</p>
+                </div>
+            </div>
+
+            <button class="carousel-btn next" aria-label="Siguiente">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+            </button>
+        </div>
+
+        <!-- TESOROS DEL MAR -->
+        <div class="tesoros-section">
+            <div class="tesoros-header">
+                <span class="tesoros-line"></span>
+                <h2 class="tesoros-title">Tesoros del Mar</h2>
+                <span class="tesoros-line"></span>
+            </div>
+            <div class="tesoros-shell">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.4">
+                    <path d="M12 2C8 2 4 6 4 10c0 4 4 8 8 12 4-4 8-8 8-12 0-4-4-8-8-8z"/>
+                    <path d="M12 2v20"/>
+                    <path d="M8 6c2 2 2 6 0 10"/>
+                    <path d="M16 6c-2 2-2 6 0 10"/>
+                </svg>
+            </div>
+            <div class="tesoros-grid">
+                <div class="tesoro-item reveal">
+                    <div class="tesoro-circle">
+                        <img src="https://www.mariscosramais.com/60-large_default/langosta.jpg" alt="Langosta">
+                    </div>
+                    <p>Langosta</p>
+                </div>
+                <div class="tesoro-item reveal">
+                    <div class="tesoro-circle">
+                        <img src="https://mardelperu.pe/wp-content/uploads/2025/03/langostinos.png" alt="Langostinos jumbo">
+                    </div>
+                    <p>Langostinos jumbo</p>
+                </div>
+                <div class="tesoro-item reveal">
+                    <div class="tesoro-circle">
+                        <img src="https://www.mariscosramais.com/46-home_default/vieiras.jpg" alt="Conchas de abanico">
+                    </div>
+                    <p>Conchas de abanico</p>
+                </div>
+                <div class="tesoro-item reveal">
+                    <div class="tesoro-circle">
+                        <img src="https://mardelperu.pe/wp-content/uploads/2025/03/concha-pala.png" alt="Concha de pala">
+                    </div>
+                    <p>Concha de pala</p>
+                </div>
+                <div class="tesoro-item reveal">
+                    <div class="tesoro-circle">
+                        <img src="https://www.mariscosramais.com/42-large_default/navaja-de-mar-pequena.jpg" alt="Navajas">
+                    </div>
+                    <p>Navajas</p>
+                </div>
+                <div class="tesoro-item reveal">
+                    <div class="tesoro-circle">
+                        <img src="https://mardelperu.pe/wp-content/uploads/2025/03/cangrejo.png" alt="Cangrejo">
+                    </div>
+                    <p>Cangrejo</p>
+                </div>
+                <div class="tesoro-item reveal">
+                    <div class="tesoro-circle">
+                        <img src="https://mardelperu.pe/wp-content/uploads/2025/03/palabritas.png" alt="Palabritas">
+                    </div>
+                    <p>Palabritas</p>
+                </div>
+                <div class="tesoro-item reveal">
+                    <div class="tesoro-circle">
+                        <img src="https://www.gastronomiavasca.net/uploads/image/file/3249/w700_erizo.jpg" alt="Erizos">
+                    </div>
+                    <p>Erizos</p>
+                </div>
+                <div class="tesoro-item reveal">
+                    <div class="tesoro-circle">
+                        <img src="https://mardelperu.pe/wp-content/uploads/2025/03/pata-mula.png" alt="Pata de mula">
+                    </div>
+                    <p>Pata de mula</p>
+                </div>
+                <div class="tesoro-item reveal">
+                    <div class="tesoro-circle">
+                        <img src="https://mardelperu.pe/wp-content/uploads/2025/03/calamar.png" alt="Calamar">
+                    </div>
+                    <p>Calamar</p>
+                </div>
+                <div class="tesoro-item reveal">
+                    <div class="tesoro-circle">
+                        <img src="https://mardelperu.pe/wp-content/uploads/2025/03/pulpo.png" alt="Pulpo">
+                    </div>
+                    <p>Pulpo</p>
+                </div>
+                <div class="tesoro-item reveal">
+                    <div class="tesoro-circle">
+                        <img src="https://www.mariscosramais.com/64-home_default/percebes.jpg" alt="Percebes">
+                    </div>
+                    <p>Percebes</p>
+                </div>
+                <div class="tesoro-item reveal">
+                    <div class="tesoro-circle">
+                        <img src="https://www.mariscosramais.com/45-home_default/ostras-de-mar.jpg" alt="Ostras de mar">
+                    </div>
+                    <p>Ostras de mar</p>
+                </div>
+                <div class="tesoro-item reveal">
+                    <div class="tesoro-circle">
+                        <img src="https://www.mariscosramais.com/29-home_default/babosa-mediana.jpg" alt="Babosa de mar">
+                    </div>
+                    <p>Babosa de mar</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NOSOTROS - DISEÑO TIPO LIBRO -->
+    <section id="nosotros">
+        <div class="section-title reveal">
+            <span class="eyebrow">Tradición y Origen</span>
+            <h2>Nuestra Historia</h2>
+        </div>
+
+        <div class="book-container reveal">
+            <div class="book">
+                <div class="book-page page-left">
+                    <div class="page-content">
+                        <div class="page-number">I</div>
+                        <p class="drop-cap">Cada amanecer, cuando los primeros rayos de sol se reflejan sobre las olas, el mar despierta con una promesa: brindar lo mejor de sí a quienes viven de él y a quienes disfrutan de sus tesoros.</p>
+                        <p>En las costas del Perú, pescadores parten temprano en sus embarcaciones, guiados por la experiencia, el esfuerzo y el profundo respeto por el océano. Cada jornada es diferente, pero el propósito es siempre el mismo: regresar con la frescura y calidad que el mar ofrece generosamente cada día.</p>
+                        <p>De esa conexión nace Saldelmar. Más que un restaurante, somos un homenaje a nuestra tradición marina, a los sabores que cuentan historias y a los momentos que unen a las familias alrededor de una mesa.</p>
+                    </div>
+                </div>
+
+                <div class="book-spine"></div>
+
+                <div class="book-page page-right">
+                    <div class="page-content">
+                        <div class="page-number">II</div>
+                        <p>Cada plato representa un viaje desde el océano hasta la cocina, donde la pasión, el talento y el respeto por el producto transforman ingredientes frescos en experiencias memorables. El ceviche, los arroces, los pescados y los mariscos reflejan el orgullo de nuestra gastronomía y la riqueza incomparable de nuestro litoral.</p>
+                        <p class="frase-destacada">"Saldelmar, el mar nuestro de cada día"</p>
+                        <p>Porque creemos que cada día es una nueva oportunidad para celebrar la abundancia del mar, compartir sus sabores y mantener viva una tradición que forma parte de nuestra identidad y de nuestra historia.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-title reveal" style="margin-top: 4rem;">
+            <h2>Nuestros Proveedores</h2>
+        </div>
+        <div class="proveedores-columns">
+            <div class="proveedor-col reveal">
+                <h4>Pescadores</h4>
+                <ul>
+                    <li>Robalo, Corvina / Milton Lara - Cerro Azul</li>
+                    <li>Morena / Carlos G. - Lima</li>
+                    <li>Atún / Cristian - Piura</li>
+                    <li>Cangrejo popeye / Pablo P. - Pimentel Santa Rosa</li>
+                </ul>
+            </div>
+            <div class="proveedor-col reveal">
+                <h4>Agricultores</h4>
+                <ul>
+                    <li>Arroz / Tomas Padilla</li>
+                    <li>Ají cerezo / Carlos G</li>
+                    <li>Ají uña de gavilán / Carlos G</li>
+                </ul>
+            </div>
+            <div class="proveedor-col reveal">
+                <h4>Productos Extranjeros</h4>
+                <ul>
+                    <li>Lúpulos / Cryos Hops</li>
+                    <li>Malta / Best Maiz</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto">
+        <div class="section-title reveal">
+            <span class="eyebrow">Reservas y Contacto</span>
+            <h2>Visítenos</h2>
+        </div>
+        <div class="info-grid">
+            <div class="info-box reveal">
+                <h4>Dirección</h4>
+                <p>Av. Tejada 593, Miraflores, Lima 15047</p>
+            </div>
+            <div class="info-box reveal">
+                <h4>Horario</h4>
+                <p>Lun - Sab: 11:30am - 10:00pm</p>
+            </div>
+            <div class="info-box reveal">
+                <h4>Reservas</h4>
+                <p><a href="tel:+51953489892" class="telefono">+51 953 489 892</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2026 Saldelmar - Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- MODAL DE DETALLE DEL PESCADO -->
+    <div class="fish-modal" id="fishModal" aria-hidden="true">
+        <div class="fish-modal-backdrop" data-close-modal></div>
+        <div class="fish-modal-content" role="dialog" aria-modal="true" aria-labelledby="fishModalTitle">
+            <button class="fish-modal-close" aria-label="Cerrar" data-close-modal>&times;</button>
+            <div class="fish-modal-image">
+                <img id="fishModalImg" src="" alt="">
+            </div>
+            <h3 id="fishModalTitle"></h3>
+            <p class="fish-modal-desc"></p>
+            <div class="fish-modal-origin">
+                <span class="fish-modal-origin-label">Procedencia</span>
+                <p class="fish-modal-origin-text"></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
