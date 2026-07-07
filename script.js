@@ -92,13 +92,13 @@ const fishModalTitle = document.getElementById('fishModalTitle');
 const fishModalDesc = document.querySelector('.fish-modal-desc');
 const fishModalOrigin = document.querySelector('.fish-modal-origin-text');
 
-function openFishModal(plate) {
+function openFishModal(item) {
     if (!fishModal) return;
 
-    const name = plate.querySelector('.plate-label')?.textContent || '';
-    const desc = plate.dataset.desc || '';
-    const origin = plate.dataset.origin || '';
-    const imgEl = plate.querySelector('img');
+    const name = item.querySelector('.plate-label, p')?.textContent || '';
+    const desc = item.dataset.desc || '';
+    const origin = item.dataset.origin || '';
+    const imgEl = item.querySelector('img');
 
     fishModalTitle.textContent = name;
     fishModalDesc.textContent = desc;
@@ -141,6 +141,11 @@ plates.forEach((plate, index) => {
         updateCarousel();
         openFishModal(plate);
     });
+});
+
+// Click en un marisco de "Tesoros del Mar": abre su modal de detalle
+document.querySelectorAll('.tesoro-item').forEach(item => {
+    item.addEventListener('click', () => openFishModal(item));
 });
 
 // Inicializar
