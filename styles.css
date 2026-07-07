@@ -384,6 +384,61 @@ nav.scrolled .img-logo {
     transform-origin: left;
 }
 
+/* ============================================
+   SÍGUENOS EN — INSTAGRAM
+   ============================================ */
+.nav-follow {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+}
+
+.nav-follow .follow-text {
+    font-size: 0.72rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--text-muted);
+    white-space: nowrap;
+}
+
+.nav-follow .follow-arrow {
+    width: 16px;
+    height: 16px;
+    color: var(--gold);
+    flex-shrink: 0;
+}
+
+.instagram-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    flex-shrink: 0;
+    transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.instagram-link svg {
+    width: 18px;
+    height: 18px;
+}
+
+.instagram-link:hover {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--white);
+    transform: scale(1.08);
+}
+
+/* El subrayado hover de los links del nav no debe afectar al ícono */
+.nav-follow a::after {
+    content: none;
+}
+
 .nav-toggle {
     display: none;
     width: 30px;
@@ -1091,6 +1146,16 @@ footer {
         border-bottom: 1px solid rgba(245, 247, 242, 0.12);
     }
 
+    .nav-follow {
+        justify-content: center;
+        padding: 1.1rem 0 0.3rem;
+        border-bottom: none !important;
+    }
+
+    .nav-follow .follow-text {
+        color: var(--bg-medium);
+    }
+
     section { padding: 4rem 6%; }
 
     .carousel-plates {
@@ -1222,6 +1287,20 @@ footer {
         letter-spacing: 0.18em;
     }
 
+    .nav-follow .follow-text {
+        font-size: 0.65rem;
+    }
+
+    .instagram-link {
+        width: 32px;
+        height: 32px;
+    }
+
+    .instagram-link svg {
+        width: 16px;
+        height: 16px;
+    }
+
     .section-title h2 {
         font-size: 2.4rem;
     }
@@ -1342,6 +1421,20 @@ footer {
         font-size: 0.85rem;
         padding: 0.65rem 0;
         letter-spacing: 0.14em;
+    }
+
+    .nav-follow .follow-text {
+        font-size: 0.6rem;
+    }
+
+    .instagram-link {
+        width: 30px;
+        height: 30px;
+    }
+
+    .instagram-link svg {
+        width: 15px;
+        height: 15px;
     }
 
     section { padding: 3rem 4%; }
@@ -1473,6 +1566,30 @@ footer {
         font-size: 0.75rem;
         padding: 0.55rem 0;
         letter-spacing: 0.1em;
+    }
+
+    .nav-follow {
+        gap: 0.35rem;
+    }
+
+    .nav-follow .follow-text {
+        font-size: 0.52rem;
+        letter-spacing: 0.08em;
+    }
+
+    .nav-follow .follow-arrow {
+        width: 13px;
+        height: 13px;
+    }
+
+    .instagram-link {
+        width: 26px;
+        height: 26px;
+    }
+
+    .instagram-link svg {
+        width: 13px;
+        height: 13px;
     }
 
     section { padding: 2.5rem 3%; }
