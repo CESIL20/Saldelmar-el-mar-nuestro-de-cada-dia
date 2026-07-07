@@ -18,22 +18,7 @@ if (toggleBtn) {
     });
 }
 
-// ============================================
-// NAVBAR: contracción sutil al hacer scroll
-// ============================================
-const mainNav = document.querySelector('nav');
-
-function handleNavScroll() {
-    if (!mainNav) return;
-    if (window.scrollY > 40) {
-        mainNav.classList.add('scrolled');
-    } else {
-        mainNav.classList.remove('scrolled');
-    }
-}
-
-window.addEventListener('scroll', handleNavScroll, { passive: true });
-handleNavScroll();
+// El navbar permanece fijo y con el mismo tamaño siempre (sin efecto de encogimiento al hacer scroll)
 
 // ============================================
 // CARRUSEL DE PLATOS - Efecto abanico
